@@ -1,0 +1,157 @@
+part of '../main.dart';
+
+const universityOptions = [
+  UniversityOption(name: 'University of Zambia', initials: 'UNZA'),
+  UniversityOption(name: 'UNZA Ridgeway', initials: 'UR'),
+  UniversityOption(name: 'Mulungushi University', initials: 'MU'),
+  UniversityOption(name: 'ZCAS University', initials: 'ZCAS'),
+  UniversityOption(name: 'Cavendish University', initials: 'CU'),
+  UniversityOption(name: 'Levy Mwanawasa Medical University', initials: 'LMMU'),
+];
+
+const houses = [
+  House(
+    name: 'Mr Chanda BH',
+    location: 'Kalingalinga',
+    university: 'University of Zambia',
+    price: 1200,
+    walkTime: '10 mins',
+    driveDistance: '<2 mi',
+    rating: 4.4,
+    availableSpaces: 50,
+    accent: Color(0xFFFF8C00),
+    amenities: ['Parking', 'WiFi', 'Kitchen', 'Water 24/7', 'Security', 'Backup power'],
+    imageUrls: [
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80',
+    ],
+    paymentMethods: ['Mobile money pay', 'Visa/Bank pay', 'NO cash payment'],
+    nearbyUniversities: [
+      (name: 'University of Zambia', distance: '0.5km'),
+      (name: 'Chreso university', distance: '0.8km'),
+    ],
+  ),
+  House(
+    name: 'Sunrise Flats',
+    location: 'Mass Media',
+    university: 'UNZA Ridgeway',
+    price: 1450,
+    walkTime: '14 mins',
+    driveDistance: '2.4 mi',
+    rating: 4.6,
+    availableSpaces: 18,
+    accent: Color(0xFF2EBD8A),
+    amenities: ['WiFi', 'Laundry', 'Security', 'Study Room'],
+    imageUrls: [
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1560448075-bb485b067938?auto=format&fit=crop&w=900&q=80',
+    ],
+    paymentMethods: ['Mobile money pay', 'Visa/Bank pay'],
+    nearbyUniversities: [
+      (name: 'UNZA Ridgeway', distance: '1.2km'),
+    ],
+  ),
+  House(
+    name: 'Mulungushi Lodge',
+    location: 'Longacres',
+    university: 'Mulungushi University',
+    price: 1800,
+    walkTime: '8 mins',
+    driveDistance: '1.1 mi',
+    rating: 4.7,
+    availableSpaces: 24,
+    accent: Color(0xFF4867E8),
+    amenities: ['Parking', 'Meals', 'Backup Power', 'Water 24/7'],
+    imageUrls: [
+      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1560448075-bb485b067938?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1560449752-7d7f1c812f5f?auto=format&fit=crop&w=900&q=80',
+    ],
+    paymentMethods: ['Mobile money pay', 'Visa/Bank pay'],
+    nearbyUniversities: [
+      (name: 'Mulungushi University', distance: '0.9km'),
+    ],
+  ),
+  House(
+    name: 'Campus Nest',
+    location: 'Roma',
+    university: 'ZCAS University',
+    price: 1100,
+    walkTime: '18 mins',
+    driveDistance: '3 mi',
+    rating: 4.4,
+    availableSpaces: 32,
+    accent: Color(0xFFE84F6F),
+    amenities: ['Kitchen', 'Security', 'WiFi', 'Transport'],
+    imageUrls: [
+      'https://images.unsplash.com/photo-1560448075-bb485b067938?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1560449752-7d7f1c812f5f?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80',
+    ],
+    paymentMethods: ['Mobile money pay', 'Visa/Bank pay'],
+    nearbyUniversities: [
+      (name: 'ZCAS University', distance: '1.5km'),
+    ],
+  ),
+  House(
+    name: 'Libala Court',
+    location: 'Libala',
+    university: 'Cavendish University',
+    price: 950,
+    walkTime: '22 mins',
+    driveDistance: '4 mi',
+    rating: 4.2,
+    availableSpaces: 12,
+    accent: Color(0xFF7C5CFF),
+    amenities: ['Parking', 'Kitchen', 'Water 24/7', 'Security'],
+    imageUrls: [
+      'https://images.unsplash.com/photo-1560449752-7d7f1c812f5f?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+    ],
+    paymentMethods: ['Mobile money pay'],
+    nearbyUniversities: [
+      (name: 'Cavendish University', distance: '2.1km'),
+    ],
+  ),
+];
+
+const rooms = [
+  Room(
+    type: 'Single Room, Selfcontained',
+    rent: 1200,
+    deposit: 250,
+    available: true,
+    features: ['Own bathroom', 'Wardrobe Provided', 'Table and Chair'],
+  ),
+  Room(
+    type: 'Double Room, Shared Bath',
+    rent: 850,
+    deposit: 200,
+    available: true,
+    features: ['Shared bathroom', 'Wardrobe Provided', 'Table and Chair'],
+  ),
+  Room(
+    type: 'Studio Room, Selfcontained',
+    rent: 1650,
+    deposit: 350,
+    available: true,
+    features: ['Own bathroom', 'Kitchenette', 'Wardrobe Provided'],
+  ),
+  Room(
+    type: 'Single Room, Shared Kitchen',
+    rent: 1000,
+    deposit: 250,
+    available: false,
+    features: ['Shared kitchen', 'Wardrobe Provided', 'Table and Chair'],
+  ),
+  Room(
+    type: 'Premium Room, Ensuite',
+    rent: 1900,
+    deposit: 400,
+    available: true,
+    features: ['Ensuite bathroom', 'Balcony', 'Air conditioning'],
+  ),
+];

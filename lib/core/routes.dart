@@ -1,0 +1,31 @@
+part of '../main.dart';
+
+class Routes {
+  static const splash = '/';
+  static const login = '/login';
+  static const signup = '/signup';
+  static const verification = '/verification';
+  static const home = '/home';
+  static const houseDetail = '/house-detail';
+  static const roomList = '/room-list';
+  static const payment = '/payment';
+  static const success = '/success';
+  static const receipt = '/receipt';
+  static const account = '/account';
+  static const profile = '/profile';
+  static const myAccommodation = '/my-accommodation';
+  static const customerCare = '/customer-care';
+  static const settings = '/settings';
+  static const map = '/map';
+  static const notifications = '/notifications';
+  static const universitySearch = '/university-search';
+  static const filters = '/filters';
+  static const lencoTest = '/lenco-test';
+  static const landlordHome = '/landlord-home';
+  static const landlordHouseDetail = '/landlord-house-detail';
+  static const landlordRooms = '/landlord-rooms';
+  static const landlordAmenities = '/landlord-amenities';
+  static const landlordProfile = '/landlord-profile';
+  static const landlordPaymentDetails = '/landlord-payment-details';
+  static const landlordHouseRegSuccess = '/landlord-house-reg-success';
+}

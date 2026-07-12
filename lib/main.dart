@@ -1,0 +1,68 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:math' as math;
+import 'dart:ui';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:http/http.dart' as http;
+
+part 'core/app_constants.dart';
+part 'core/routes.dart';
+part 'models/house.dart';
+part 'models/room.dart';
+part 'models/university_option.dart';
+part 'models/payment_session.dart';
+part 'data/mock_data.dart';
+part 'utils/formatters.dart';
+part 'services/unistay_api.dart';
+part 'repositories/auth_repository.dart';
+part 'repositories/house_repository.dart';
+part 'repositories/payment_repository.dart';
+part 'viewmodels/auth_viewmodel.dart';
+part 'viewmodels/home_viewmodel.dart';
+part 'viewmodels/booking_viewmodel.dart';
+part 'app/unistay_app.dart';
+part 'screens/auth/splash_screen.dart';
+part 'screens/auth/login_screen.dart';
+part 'screens/auth/signup_screen.dart';
+part 'screens/auth/verification_screen.dart';
+part 'screens/student/student_home_screen.dart';
+part 'screens/student/notifications_screen.dart';
+part 'screens/student/house_detail_screen.dart';
+part 'screens/student/room_list_screen.dart';
+part 'screens/payment/payment_screen.dart';
+part 'screens/payment/success_screen.dart';
+part 'screens/payment/receipt_screen.dart';
+part 'screens/account/account_screen.dart';
+part 'screens/map/map_screen.dart';
+part 'screens/account/profile_screen.dart';
+part 'screens/account/my_accommodation_screen.dart';
+part 'screens/account/customer_care_screen.dart';
+part 'screens/account/settings_screen.dart';
+part 'screens/search/university_search_screen.dart';
+part 'screens/search/filter_screen.dart';
+part 'screens/landlord/landlord_home_screen.dart';
+part 'screens/landlord/landlord_house_detail_screen.dart';
+part 'screens/landlord/landlord_rooms_screen.dart';
+part 'screens/landlord/landlord_amenities_screen.dart';
+part 'screens/landlord/landlord_profile_screen.dart';
+part 'screens/landlord/landlord_payment_details_screen.dart';
+part 'screens/landlord/landlord_registration_success_screen.dart';
+part 'widgets/auth_widgets.dart';
+part 'widgets/app_chrome.dart';
+part 'widgets/home_widgets.dart';
+part 'widgets/room_widgets.dart';
+part 'widgets/payment_widgets.dart';
+part 'widgets/landlord_widgets.dart';
+part 'widgets/common_widgets.dart';
+part 'widgets/map_widgets.dart';
+part 'widgets/placeholder_page.dart';
+part 'utils/ui_feedback.dart';
+
+void main() {
+  runApp(const UniStayApp());
+}
