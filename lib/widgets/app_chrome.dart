@@ -135,9 +135,9 @@ class UniBottomNavigationBar extends StatelessWidget {
 
   static const _tabs = [
     _NavTab(
-      icon: Icons.explore_rounded,
-      outlinedIcon: Icons.explore_outlined,
-      label: 'Explore',
+      icon: Icons.home_rounded,
+      outlinedIcon: Icons.home_outlined,
+      label: 'Home',
     ),
     _NavTab(
       icon: Icons.map_rounded,
@@ -145,9 +145,14 @@ class UniBottomNavigationBar extends StatelessWidget {
       label: 'Map',
     ),
     _NavTab(
+      icon: Icons.favorite_rounded,
+      outlinedIcon: Icons.favorite_outline_rounded,
+      label: 'Saved',
+    ),
+    _NavTab(
       icon: Icons.person_rounded,
       outlinedIcon: Icons.person_outline_rounded,
-      label: 'Account',
+      label: 'Profile',
     ),
   ];
 
@@ -268,5 +273,3 @@ class UniBottomNavigationDock extends StatelessWidget {
     );
   }
 }
-
-

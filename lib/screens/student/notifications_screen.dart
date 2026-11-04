@@ -52,7 +52,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         },
       ),
       bottomNavigationBar: UniBottomNavigationDock(
-        selectedTabIndex: 2,
+        selectedTabIndex: 3,
         onTabSelected: _onTabSelected,
       ),
     );
@@ -61,6 +61,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   void _onTabSelected(int index) {
     if (index == 0) Navigator.pop(context);
     if (index == 1) Navigator.pushNamed(context, Routes.map);
+    if (index == 2) Navigator.pushNamed(context, Routes.saved);
   }
 }
 

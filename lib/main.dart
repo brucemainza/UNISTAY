@@ -9,6 +9,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:shimmer/shimmer.dart';
 
 part 'core/app_constants.dart';
 part 'core/routes.dart';
@@ -31,10 +32,13 @@ part 'screens/auth/login_screen.dart';
 part 'screens/auth/signup_screen.dart';
 part 'screens/auth/verification_screen.dart';
 part 'screens/student/student_home_screen.dart';
+part 'screens/student/saved_screen.dart';
 part 'screens/student/notifications_screen.dart';
 part 'screens/student/house_detail_screen.dart';
 part 'screens/student/room_list_screen.dart';
 part 'screens/payment/payment_screen.dart';
+part 'screens/payment/booking_flow_screens.dart';
+part 'screens/student/enquire_screen.dart';
 part 'screens/payment/success_screen.dart';
 part 'screens/payment/receipt_screen.dart';
 part 'screens/account/account_screen.dart';
@@ -61,6 +65,7 @@ part 'widgets/landlord_widgets.dart';
 part 'widgets/common_widgets.dart';
 part 'widgets/map_widgets.dart';
 part 'widgets/placeholder_page.dart';
+part 'widgets/shimmer_widgets.dart';
 part 'utils/ui_feedback.dart';
 
 void main() {

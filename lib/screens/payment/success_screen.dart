@@ -6,89 +6,22 @@ class SuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Icon(
-                Icons.check_circle,
-                color: Colors.green,
-                size: 100,
-              ),
-              const SizedBox(height: 28),
-              const Text(
-                'Booking Successfull',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                'You can view your recipt in the accounts menu',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black54,
-                ),
-              ),
-              const SizedBox(height: 36),
-              Center(
-                child: SizedBox(
-                  width: math.min(MediaQuery.sizeOf(context).width * 0.65, 280),
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.pushNamed(context, Routes.receipt),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: orangePrimary,
-                      foregroundColor: Colors.white,
-                      minimumSize: const Size.fromHeight(50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      textStyle: const TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    child: const Text('view Recipt'),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 14),
-              Center(
-                child: SizedBox(
-                  width: math.min(MediaQuery.sizeOf(context).width * 0.65, 280),
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      Routes.home,
-                      (route) => false,
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: orangePrimary,
-                      foregroundColor: Colors.white,
-                      minimumSize: const Size.fromHeight(50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      textStyle: const TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    child: const Text('Back to Explore'),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+      appBar: const UniAppBar(title: 'Booking confirmed'),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const SizedBox(height: 20),
+          const _IconBadge(icon: Icons.check, color: mintGreen),
+          const SizedBox(height: 20),
+          const Text('You’re booked, Bruce!', textAlign: TextAlign.center, style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900)),
+          const SizedBox(height: 8),
+          const Text('Your December room at Mr Chanda BH is confirmed.', textAlign: TextAlign.center, style: TextStyle(color: grayText)),
+          const SizedBox(height: 22),
+          const _FlowCard(title: 'Mr Chanda BH', children: [_FlowRow(label: 'Move-in', value: '01 Dec 2026'), _FlowRow(label: 'Move-out', value: '31 Dec 2026'), _FlowRow(label: 'Rental period', value: 'Monthly')]),
+          _PrimaryFlowButton(label: 'View receipt', onPressed: () => Navigator.pushNamed(context, Routes.receipt)),
+          const SizedBox(height: 10),
+          OutlinedButton(onPressed: () => Navigator.pushNamed(context, Routes.myAccommodation), child: const Text('My accommodation')),
+        ],
       ),
     );
   }

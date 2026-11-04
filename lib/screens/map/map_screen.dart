@@ -44,7 +44,8 @@ class _MapScreenState extends State<MapScreen> {
 
   void selectTab(int index) {
     if (index == 0) Navigator.pushReplacementNamed(context, Routes.home);
-    if (index == 2) Navigator.pushReplacementNamed(context, Routes.account);
+    if (index == 2) Navigator.pushReplacementNamed(context, Routes.saved);
+    if (index == 3) Navigator.pushReplacementNamed(context, Routes.account);
   }
 
   @override

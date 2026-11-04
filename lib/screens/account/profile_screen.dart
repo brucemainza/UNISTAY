@@ -5,10 +5,23 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PlaceholderPage(
-      title: 'Profile',
-      icon: Icons.account_circle_outlined,
-      message: 'Bruce Mainza\nstudent@unza.zm\n0971234567',
+    return Scaffold(
+      appBar: const UniAppBar(title: 'My Profile'),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const Center(child: CircleAvatar(radius: 38, backgroundColor: Color(0xFFFFF3E0), child: Icon(Icons.person_outline, color: orangePrimary, size: 44))),
+          const SizedBox(height: 10),
+          const Center(child: Chip(label: Text('Verified student'))),
+          for (final field in const [('Full name', 'Bruce Mainza'), ('Email address', 'student@unza.zm'), ('Phone number', '+260 97 123 4567'), ('University', 'UNZA')]) ...[
+            Text(field.$1, style: const TextStyle(fontWeight: FontWeight.w700)),
+            const SizedBox(height: 6),
+            TextField(decoration: InputDecoration(hintText: field.$2)),
+            const SizedBox(height: 14),
+          ],
+          ElevatedButton(onPressed: () => showSnack(context, 'Profile saved'), child: const Text('Save changes')),
+        ],
+      ),
     );
   }
 }
