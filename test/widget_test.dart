@@ -25,4 +25,15 @@ void main() {
     expect(find.text('Phone Number'), findsOneWidget);
     await tester.pumpWidget(const SizedBox.shrink());
   });
+
+  testWidgets('Student home renders houses after loading', (tester) async {
+    await tester.pumpWidget(const MaterialApp(home: StudentHomeScreen()));
+
+    expect(find.text('Explore houses'), findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 350));
+    await tester.pump();
+
+    expect(find.text('Mr Chanda BH'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
 }

@@ -50,7 +50,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
     Navigator.pushNamed(
       context,
       Routes.verification,
-      arguments: viewModel.selectedRole,
+      arguments: {
+        'role': viewModel.selectedRole,
+        'email': emailController.text.trim(),
+      },
     );
   }
 

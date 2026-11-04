@@ -1,7 +1,7 @@
 # MyBoardingHouse - Complete Technical Documentation
 
 **Document Version:** 1.0  
-**App Name:** MyBoardingHouse (Splash: "UniStay")  
+**App Name:** (Splash: "UniStay")  
 **Package Name:** com.example.myboardinghouse  
 **API Level:** Min 24 | Target 34 | Compile 36  
 **Technology Stack:** Jetpack Compose, Navigation Compose, Google Maps SDK, Flutterwave Payment SDK
@@ -11,7 +11,7 @@
 ## 1. SYSTEM OVERVIEW & CORE INTENT
 
 ### 1.1 Problem Statement
-MyBoardingHouse is a property rental platform designed to connect students/renters with landlords offering accommodation near universities. The app simplifies the boarding house discovery, comparison, and booking process for students while providing landlords with property management tools.
+Unistay is a property rental platform designed to connect students/renters with landlords offering accommodation near universities. The app simplifies the boarding house discovery, comparison, and booking process for students while providing landlords with property management tools.
 
 ### 1.2 Target Users
 - **Students:** University students seeking affordable boarding house accommodation

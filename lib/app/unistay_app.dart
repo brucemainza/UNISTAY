@@ -93,18 +93,45 @@ class UniStayApp extends StatelessWidget {
             screen = const SignUpScreen();
           case Routes.verification:
             screen = VerificationScreen(
-              role: args is String ? args : 'Student',
+              role: args is Map
+                  ? args['role'] as String? ?? 'Student'
+                  : args is String
+                  ? args
+                  : 'Student',
+              email: args is Map
+                  ? args['email'] as String? ?? 'student@unza.zm'
+                  : 'student@unza.zm',
             );
           case Routes.home:
             screen = const StudentHomeScreen();
+          case Routes.saved:
+            screen = const SavedScreen();
           case Routes.houseDetail:
             screen = HouseDetailScreen(
               house: args is House ? args : houses.first,
             );
           case Routes.roomList:
             screen = RoomListScreen(house: args is House ? args : houses.first);
+          case Routes.enquire:
+            screen = EnquireScreen(room: args is Room ? args : rooms.first);
+          case Routes.bookingCalendar:
+            screen = BookingCalendarScreen(
+              room: args is Room ? args : rooms.first,
+            );
           case Routes.payment:
             screen = PaymentScreen(room: args is Room ? args : rooms.first);
+          case Routes.bookingSummary:
+            screen = BookingSummaryScreen(room: args is Room ? args : rooms.first);
+          case Routes.processing:
+            screen = const ProcessingScreen();
+          case Routes.failed:
+            screen = const FailedPaymentScreen();
+          case Routes.bookingDetail:
+            screen = const BookingDetailScreen();
+          case Routes.offline:
+            screen = const OfflineScreen();
+          case Routes.error:
+            screen = const ErrorStateScreen();
           case Routes.success:
             screen = const SuccessScreen();
           case Routes.receipt:

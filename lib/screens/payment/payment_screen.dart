@@ -112,8 +112,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
           ),
         ),
       ),
-      body: Column(
+      body: Stack(
         children: [
+          Column(
+            children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 8, 18, 18),
             child: _BookingStepper(currentStep: currentStep),
@@ -161,6 +163,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     ),
             ),
           ),
+            ],
+          ),
+          if (viewModel.processing) const Positioned.fill(child: OrderLoadingSkeleton()),
         ],
       ),
     );

@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: orangePrimary,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -84,16 +84,16 @@ class _SplashScreenState extends State<SplashScreen>
                   child: Opacity(
                     opacity: _fadeAnimation.value,
                     child: Container(
-                      width: 120,
-                      height: 120,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: orangePrimary,
+                        borderRadius: BorderRadius.circular(24),
                       ),
                       child: const Icon(
                         Icons.home_work_rounded,
                         size: 64,
-                        color: orangePrimary,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -111,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen>
                     style: TextStyle(
                       fontSize: 42,
                       fontWeight: FontWeight.w900,
-                      color: Colors.white,
+                      color: orangePrimary,
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -125,26 +125,20 @@ class _SplashScreenState extends State<SplashScreen>
                 return Opacity(
                   opacity: _fadeAnimation.value,
                   child: const Text(
-                    'Student Accommodation Made Easy',
+                    'Zambia student housing',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: Colors.white70,
+                      color: grayText,
                     ),
                   ),
                 );
               },
             ),
-            const SizedBox(height: 48),
-            SizedBox(
-              width: 32,
-              height: 32,
-              child: CircularProgressIndicator(
-                strokeWidth: 3,
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  Colors.white.withValues(alpha: 0.9),
-                ),
-              ),
+            const SizedBox(height: 12),
+            const Text(
+              'Your campus. Your place.',
+              style: TextStyle(color: grayText, fontSize: 14),
             ),
           ],
         ),

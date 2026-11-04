@@ -46,7 +46,8 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
 
   void selectTab(int index) {
     if (index == 1) Navigator.pushNamed(context, Routes.map);
-    if (index == 2) Navigator.pushNamed(context, Routes.account);
+    if (index == 2) Navigator.pushNamed(context, Routes.saved);
+    if (index == 3) Navigator.pushNamed(context, Routes.account);
   }
 
   Future<void> selectUniversity() async {
@@ -56,10 +57,12 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
   }
 
   Future<void> selectFilters() async {
-    final result = await Navigator.pushNamed(
-      context,
-      Routes.filters,
-      arguments: viewModel.activeFilters.toList(),
+    final result = await showModalBottomSheet<List<String>>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) =>
+          FilterScreen(initialFilters: viewModel.activeFilters.toList()),
     );
     if (!mounted || result is! List<String>) return;
     viewModel.setFilters(result);
@@ -226,10 +229,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
 }
 
 class _UniversityButton extends StatelessWidget {
-  const _UniversityButton({
-    required this.university,
-    required this.onTap,
-  });
+  const _UniversityButton({required this.university, required this.onTap});
 
   final UniversityOption? university;
   final VoidCallback onTap;
@@ -238,7 +238,11 @@ class _UniversityButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
       onPressed: onTap,
-      icon: const Icon(Icons.school_outlined, size: 25, color: Color(0xFF2B2B2B)),
+      icon: const Icon(
+        Icons.school_outlined,
+        size: 25,
+        color: Color(0xFF2B2B2B),
+      ),
       label: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Text(
@@ -265,22 +269,26 @@ class _UniversityButton extends StatelessWidget {
 }
 
 class _HomeHeaderDelegate extends SliverPersistentHeaderDelegate {
-  const _HomeHeaderDelegate({
-    required this.topPadding,
-    required this.location,
-  });
+  const _HomeHeaderDelegate({required this.topPadding, required this.location});
 
   final double topPadding;
   final String location;
 
   @override
-  double get maxExtent => topPadding + 178;
+  // The expanded header contains a title row, a search field, and its vertical
+  // padding. Keep this in sync with that content; a larger extent makes Flutter
+  // try to pin space that the child cannot paint.
+  double get maxExtent => topPadding + 120;
 
   @override
   double get minExtent => topPadding + 64;
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     final collapseRange = maxExtent - minExtent;
     final isCollapsed = shrinkOffset >= collapseRange - 24;
 
@@ -288,9 +296,7 @@ class _HomeHeaderDelegate extends SliverPersistentHeaderDelegate {
       duration: const Duration(milliseconds: 260),
       switchInCurve: Curves.easeOutCubic,
       switchOutCurve: Curves.easeOutCubic,
-      child: isCollapsed
-          ? _buildCollapsed(context)
-          : _buildExpanded(context),
+      child: isCollapsed ? _buildCollapsed(context) : _buildExpanded(context),
     );
   }
 
@@ -321,7 +327,8 @@ class _HomeHeaderDelegate extends SliverPersistentHeaderDelegate {
                   ),
                 ),
                 IconButton(
-                  onPressed: () => Navigator.pushNamed(context, Routes.notifications),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, Routes.notifications),
                   tooltip: 'Notifications',
                   icon: Icon(
                     Icons.notifications_outlined,
@@ -333,61 +340,6 @@ class _HomeHeaderDelegate extends SliverPersistentHeaderDelegate {
             ),
             const SizedBox(height: 4),
             const CompactSearchField(),
-            const SizedBox(height: 10),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                const Expanded(
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(text: 'most '),
-                        TextSpan(
-                          text: 'affordable',
-                          style: TextStyle(fontWeight: FontWeight.w900),
-                        ),
-                        TextSpan(
-                          text:
-                              ' and secure accommodation\nfor students in Zambia',
-                        ),
-                      ],
-                    ),
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      height: 1.25,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFF960D),
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.20),
-                        blurRadius: 8,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: const Text(
-                    'lowest Prices',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),
@@ -404,9 +356,7 @@ class _HomeHeaderDelegate extends SliverPersistentHeaderDelegate {
           decoration: BoxDecoration(
             color: Colors.white.withValues(alpha: 0.42),
             border: Border(
-              bottom: BorderSide(
-                color: Colors.black.withValues(alpha: 0.06),
-              ),
+              bottom: BorderSide(color: Colors.black.withValues(alpha: 0.06)),
             ),
           ),
           child: Row(
@@ -425,8 +375,12 @@ class _HomeHeaderDelegate extends SliverPersistentHeaderDelegate {
               const Expanded(child: CompactSearchField()),
               const SizedBox(width: 8),
               IconButton(
-                onPressed: () => Navigator.pushNamed(context, Routes.notifications),
-                icon: const Icon(Icons.notifications_outlined, color: Colors.black),
+                onPressed: () =>
+                    Navigator.pushNamed(context, Routes.notifications),
+                icon: const Icon(
+                  Icons.notifications_outlined,
+                  color: Colors.black,
+                ),
               ),
             ],
           ),
@@ -448,7 +402,6 @@ class _HouseSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -460,51 +413,56 @@ class _HouseSkeleton extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 180,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE0E0E0),
-              borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
+      child: Shimmer.fromColors(
+        baseColor: const Color(0xFFE2E2E2),
+        highlightColor: Colors.white,
+        period: const Duration(milliseconds: 1300),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 180,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(14),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 160,
-                  height: 16,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFE0E0E0),
-                    borderRadius: BorderRadius.circular(8),
+            Padding(
+              padding: const EdgeInsets.all(14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 160,
+                    height: 16,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                Container(
-                  width: 100,
-                  height: 14,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFE0E0E0),
-                    borderRadius: BorderRadius.circular(7),
+                  const SizedBox(height: 12),
+                  Container(
+                    width: 100,
+                    height: 14,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(7),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                Container(
-                  width: 80,
-                  height: 18,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFE0E0E0),
-                    borderRadius: BorderRadius.circular(9),
+                  const SizedBox(height: 12),
+                  Container(
+                    width: 80,
+                    height: 18,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(9),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -21,11 +21,15 @@ class RoomListScreen extends StatelessWidget {
             onBook: room.available
                 ? () => Navigator.pushNamed(
                     context,
-                    Routes.payment,
+                    Routes.bookingCalendar,
                     arguments: room,
                   )
                 : null,
-            onEnquire: () => showSnack(context, 'Enquiry sent to landlord'),
+            onEnquire: () => Navigator.pushNamed(
+              context,
+              Routes.enquire,
+              arguments: room,
+            ),
           );
         },
       ),
