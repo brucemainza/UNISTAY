@@ -9,7 +9,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 part 'core/app_constants.dart';
 part 'core/routes.dart';
@@ -39,6 +41,8 @@ part 'screens/student/room_list_screen.dart';
 part 'screens/payment/payment_screen.dart';
 part 'screens/payment/booking_flow_screens.dart';
 part 'screens/student/enquire_screen.dart';
+part 'screens/student/market_screen.dart';
+part 'screens/student/marketplace_screens.dart';
 part 'screens/payment/success_screen.dart';
 part 'screens/payment/receipt_screen.dart';
 part 'screens/account/account_screen.dart';

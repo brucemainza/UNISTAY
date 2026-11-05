@@ -150,6 +150,28 @@ class UniStayApp extends StatelessWidget {
             screen = const MapScreen();
           case Routes.notifications:
             screen = const NotificationsScreen();
+          case Routes.market:
+            screen = const MarketScreen();
+          case Routes.serviceProfile:
+            screen = const ServiceProfileScreen();
+          case Routes.postService:
+            screen = const PostServiceScreen();
+          case Routes.myServices:
+            screen = const MyServicesScreen();
+          case Routes.manageCatalog:
+            screen = const ManageCatalogScreen();
+          case Routes.addCatalogItem:
+            screen = const CatalogItemScreen();
+          case Routes.editCatalogItem:
+            screen = const CatalogItemScreen(editing: true);
+          case Routes.editService:
+            screen = const EditServiceScreen();
+          case Routes.allReviews:
+            screen = const AllReviewsScreen();
+          case Routes.rateService:
+            screen = const RateServiceScreen();
+          case Routes.reviewSubmitted:
+            screen = const ReviewSubmittedScreen();
           case Routes.universitySearch:
             screen = const UniversitySearchScreen();
           case Routes.filters:

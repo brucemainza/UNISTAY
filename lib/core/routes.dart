@@ -30,6 +30,17 @@ class Routes {
   static const universitySearch = '/university-search';
   static const filters = '/filters';
   static const lencoTest = '/lenco-test';
+  static const market = '/market';
+  static const serviceProfile = '/service-profile';
+  static const postService = '/post-service';
+  static const myServices = '/my-services';
+  static const manageCatalog = '/manage-catalog';
+  static const addCatalogItem = '/add-catalog-item';
+  static const editCatalogItem = '/edit-catalog-item';
+  static const editService = '/edit-service';
+  static const allReviews = '/all-reviews';
+  static const rateService = '/rate-service';
+  static const reviewSubmitted = '/review-submitted';
   static const landlordHome = '/landlord-home';
   static const landlordHouseDetail = '/landlord-house-detail';
   static const landlordRooms = '/landlord-rooms';
